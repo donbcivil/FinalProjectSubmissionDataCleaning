@@ -6,7 +6,7 @@
 # CreateProcesedRaw( basedir ) or call them separately and in that order.)
 #
 #  For example:
-#   RunAnalysis( "C:\Data Study\Class 3 Getting Cleaning Data\Final Project\UCI HAR Dataset" )
+#   RunAnalysis( "C:\\Data Study\\Class 3 Getting Cleaning Data\\Final Project\\UCI HAR Dataset" )
 #
 #  Or:
 #   1) CreateProcessedRaw( "C:\\Data Study\\Class 3 Getting Cleaning Data\\Final Project\\UCI HAR Dataset" )
@@ -149,7 +149,8 @@ CreateTidyData <- function(basedir)
     tidy = dcast(melted, subjectdata + activitydata + dataset ~ variable,fun.aggregate = mean)
     
     # Write final tidy data file
-    write.csv(tidy,"final/tidymerged.csv",row.names = FALSE)
+    #write.csv(tidy,"final/tidymerged.csv",row.names = FALSE)
+    write.table(tidy,"final/tidymerged.txt",row.name = FALSE )
 }
 
 
